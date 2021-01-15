@@ -9,8 +9,3 @@ WIKI_DUMP_DOWNLOAD_URL=https://dumps.wikimedia.org/${LG}wiki/latest/$WIKI_DUMP_N
 echo "Downloading the latest $LG-language Wikipedia dump from $WIKI_DUMP_DOWNLOAD_URL..."
 wget -c $WIKI_DUMP_DOWNLOAD_URL
 echo "Succesfully downloaded the latest $LG-language Wikipedia dump to $WIKI_DUMP_NAME"
-
-# clone wikiextractor repo
-git clone https://github.com/attardi/wikiextractor.git
-
-echo "Cloned wikiextractor repository"
