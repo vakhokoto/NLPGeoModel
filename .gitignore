@@ -1,2 +1,4 @@
 kawiki-latest-pages-articles*
 data/
+.ipynb_checkpoints/
+.vscode/
