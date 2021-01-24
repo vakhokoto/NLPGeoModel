@@ -23,7 +23,7 @@ echo "Succesfully extractied and cleaned ../../$WIKI_DUMP_NAME to ../../$WIKI_OU
 cd ../../
 mkdir -p data/whole-data data/marketer-articles
 python utils.py
-rm kawiki-latest-pages-articles.txt
+rm $WIKI_OUT_FILE $WIKI_DUMP_NAME
 
 wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1byXIbnkZFDpTpRz1jVMbPtp0ELptuQ51' -O data/marketer-articles/articles.csv
 
