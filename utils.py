@@ -5,7 +5,7 @@ def write_to_file(data):
     file_name = ''
     for _ in range(10):
         file_name += random.choice(string.ascii_uppercase + string.digits)
-    out_file = open('data/' + file_name, 'w+')
+    out_file = open('data/whole-data/' + file_name, 'w+')
     out_file.write(data)
 
 def main():

@@ -20,7 +20,7 @@ python3 -m WikiExtractor ../../${WIKI_DUMP_NAME} --processes 8 -q -o - \
 echo "Succesfully extractied and cleaned ../../$WIKI_DUMP_NAME to ../../kawiki-latest-pages-articles.txt"
 
 cd ../../
-mkdir data
-python main.py
+mkdir -p data/whole-data
+python utils.py
 rm kawiki-latest-pages-articles.txt
 
