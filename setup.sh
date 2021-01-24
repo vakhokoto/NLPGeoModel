@@ -4,6 +4,7 @@ set -e
 LG=$1
 WIKI_DUMP_NAME=${LG}wiki-latest-pages-articles.xml.bz2
 WIKI_DUMP_DOWNLOAD_URL=https://dumps.wikimedia.org/${LG}wiki/latest/$WIKI_DUMP_NAME
+WIKI_OUT_FILE=${LG}wiki-latest-pages-articles.txt
 
 # download latest Wikipedia dump in chosen language
 echo "Downloading the latest $LG-language Wikipedia dump from $WIKI_DUMP_DOWNLOAD_URL..."
@@ -16,11 +17,13 @@ python3 -m WikiExtractor ../../${WIKI_DUMP_NAME} --processes 8 -q -o - \
 | sed "/^\s*\$/d" \
 | grep -v "^<doc id=" \
 | grep -v "</doc>\$" \
-> ../../kawiki-latest-pages-articles.txt
-echo "Succesfully extractied and cleaned ../../$WIKI_DUMP_NAME to ../../kawiki-latest-pages-articles.txt"
+> ../../$WIKI_OUT_FILE
+echo "Succesfully extractied and cleaned ../../$WIKI_DUMP_NAME to ../../$WIKI_OUT_FILE"
 
 cd ../../
-mkdir -p data/whole-data
+mkdir -p data/whole-data data/marketer-articles
 python utils.py
 rm kawiki-latest-pages-articles.txt
+
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1byXIbnkZFDpTpRz1jVMbPtp0ELptuQ51' -O data/marketer-articles/articles.csv
 
